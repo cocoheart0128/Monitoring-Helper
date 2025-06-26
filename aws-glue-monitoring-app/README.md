@@ -52,20 +52,18 @@ docker run -p 8501:8501 aws-glue-monitoring-app
 
 2. 사이드바에서 설정
 
-<div style="display: flex; justify-content: center;">
-  <div style="display: flex; width: 80%; max-width: 1000px;">
+<div align="center">
+  <div style="display: flex; max-width: 800px; width: 100%; text-align: left;">
     
-    <!-- 이미지 영역 (30%) -->
-    <div style="flex: 3;">
-      <img src="https://github.com/user-attachments/assets/dd21545c-0ccf-4090-8846-cb49d96683ce"
-           alt="사이드바 설정"
-           style="width: 100%; height: auto;" />
+    <!-- 이미지 (30%) -->
+    <div style="width: 30%;">
+      <img src="https://github.com/user-attachments/assets/dd21545c-0ccf-4090-8846-cb49d96683ce" alt="사이드바 설정" style="width: 100%;" />
     </div>
 
-    <!-- 설명 영역 (70%) -->
-    <div style="flex: 7; padding-left: 16px;">
+    <!-- 텍스트 (70%) -->
+    <div style="width: 70%; padding-left: 12px;">
       <p><strong>좌측 사이드바에서 다음 설정을 진행합니다:</strong></p>
-      <ul style="margin-top: 0;">
+      <ul>
         <li><strong>Max Workflow Runs to Fetch</strong><br />불러올 실행 이력 수 설정 (1~10)</li>
         <li><strong>Fetch Workflow Runs 버튼 클릭</strong><br />설정된 워크플로우 이름에 대해 실행 이력을 불러옵니다.</li>
       </ul>
@@ -73,6 +71,8 @@ docker run -p 8501:8501 aws-glue-monitoring-app
 
   </div>
 </div>
+
+
 
 
 3. 대시보드 확인
