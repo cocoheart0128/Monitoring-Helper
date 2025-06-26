@@ -57,7 +57,7 @@ docker run -p 8501:8501 aws-glue-monitoring-app
     <tr>
       <td style="width: 30%; vertical-align: top; padding: 0;">
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/dd21545c-0ccf-4090-8846-cb49d96683ce" alt="사이드바 설정" style="width: 70%; max-width: 70%;" />
+  <img src="https://github.com/user-attachments/assets/dd21545c-0ccf-4090-8846-cb49d96683ce" alt="사이드바 설정" style="width: 50%; max-width: 50%;" />
 </p>
       </td>
       <td style="width: 70%; vertical-align: top; padding: 0 0 0 10px;">
