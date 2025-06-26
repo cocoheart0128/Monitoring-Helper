@@ -53,10 +53,10 @@ docker run -p 8501:8501 aws-glue-monitoring-app
 2. 사이드바에서 설정
 
 <div style="display: flex; justify-content: center;">
-  <table style="width: 120%; border: none; border-collapse: collapse;">
+  <table style="width: 100%; border: none; border-collapse: collapse;">
     <tr>
       <td style="width: 30%; vertical-align: top; padding: 0;">
-        <img src="https://github.com/user-attachments/assets/dd21545c-0ccf-4090-8846-cb49d96683ce" alt="사이드바 설정" style="width: 80%; max-width: 80%;"/>
+        <img src="https://github.com/user-attachments/assets/dd21545c-0ccf-4090-8846-cb49d96683ce" alt="사이드바 설정" style="width: 70%; max-width: 70%;"/>
       </td>
       <td style="width: 70%; vertical-align: top; padding: 0 0 0 10px;">
         <p><strong>좌측 사이드바에서 다음 설정을 진행합니다:</strong></p>
