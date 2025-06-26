@@ -37,17 +37,13 @@ aws-glue-monitoring-app/
 ```
 ---
 
-🗂️ 프로젝트 구조2
-
-```plaintext
-aws-glue-monitoring-app/
-├── app/
-│   └── app.py                   # Streamlit 대시보드 메인 파일
-├── configs/
-│   ├── workflow_config.json     # AWS 인증 정보 및 워크플로우 이름 설정
-│   └── workflow_sample.json     # 테스트용 샘플 데이터
-├── requirements.txt             # Python 패키지 의존성 목록
-├── Dockerfile                   # Docker 이미지 정의 파일
-├── deploy.yml                   # GitHub Actions 배포 설정
-├── start.sh                     # 로컬 실행 스크립트
-└── README.md  
+## 🗂️ 🚀 실행 방법
+1. 로컬에서 실행
+   <pre> ```bash pip install -r requirements.txt ``` </pre>
+   <pre> ```bash # streamlit run app.py ``` </pre>
+3. Docker로 실행
+bash
+복사
+편집
+docker build -t glue-monitor .
+docker run -p 8501:8501 glue-monitor
