@@ -37,15 +37,53 @@ aws-glue-monitoring-app/
 ```
 ---
 
-## 🗂️ 🚀 실행 방법
+## 🚀 실행 방법
+
 1. 로컬에서 실행
 ```
 pip install -r requirements.txt
 streamlit run app.py
 ``` 
-3. Docker로 실행
-bash
-복사
-편집
-docker build -t glue-monitor .
-docker run -p 8501:8501 glue-monitor
+2. Docker로 실행
+```
+docker build -t aws-glue-monitoring-app .
+docker run -p 8501:8501 aws-glue-monitoring-app
+```
+
+## 🧭 사용 방법
+
+📌 STEP 1: Config 파일 설정
+workflow_config.json 파일에 모니터링할 워크플로우 이름과 AWS 인증 정보 입력
+
+또는 .env 파일 사용 시 내부 코드를 해당 환경변수로 수정 가능
+
+🧾 STEP 2: 사이드바에서 설정
+좌측 사이드바에서 다음 설정을 진행합니다:
+
+- Max Workflow Runs to Fetch
+  불러올 실행 이력 수 설정 (1~10)
+
+- Fetch Workflow Runs 버튼 클릭
+  설정된 워크플로우 이름에 대해 실행 이력을 불러옵니다.
+
+📊 STEP 3: 대시보드 확인
+워크플로우별 실행 이력을 다음과 같이 확인할 수 있습니다:
+
+🔽 날짜별 실행 내역이 Expander로 나열됨
+
+✅ 각 실행 내에서 JOB 별 실행 상태, 시간, 소요 시간, 실패 여부를 확인 가능
+
+✔️ 상태에 따라 ✅(성공), ❌(실패), ⏳(대기), 🔄(실행 중) 아이콘 표시
+
+📈 성공/전체 Job 비율로 워크플로우 성공률 시각화
+
+▶️ 예시
+
+
+⚠️ 주의사항
+workflow_config.json에 AWS 자격 증명을 직접 포함하지 말고,
+.env 또는 GitHub Secrets를 통한 보안 처리 권장
+
+Mock 데이터를 사용하는 경우 실제 AWS 호출은 일어나지 않음
+
+Production 배포 시 SSL 인증 적용, 사용자 인증 추가 고려 필요
