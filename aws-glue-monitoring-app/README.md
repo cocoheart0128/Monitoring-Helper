@@ -39,8 +39,10 @@ aws-glue-monitoring-app/
 
 ## 🗂️ 🚀 실행 방법
 1. 로컬에서 실행
-   <pre> ```bash pip install -r requirements.txt ``` </pre>
-   <pre> ```bash # streamlit run app.py ``` </pre>
+```
+pip install -r requirements.txt
+streamlit run app.py
+``` 
 3. Docker로 실행
 bash
 복사
