@@ -51,6 +51,8 @@ docker run -p 8501:8501 aws-glue-monitoring-app
     또는 .env 파일 사용 시 내부 코드를 해당 환경변수로 수정 가능
 
 2. 사이드바에서 설정
+<img width="219" alt="截屏2025-06-26 下午10 40 00" src="https://github.com/user-attachments/assets/dd21545c-0ccf-4090-8846-cb49d96683ce" />
+<img width="219" alt="截屏2025-06-26 下午10 40 00" src="https://github.com/user-attachments/assets/dd21545c-0ccf-4090-8846-cb49d96683ce" />
 
     좌측 사이드바에서 다음 설정을 진행합니다:
     
