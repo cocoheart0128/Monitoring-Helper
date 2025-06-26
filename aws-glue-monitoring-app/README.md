@@ -22,7 +22,7 @@ aws-glue-monitoring-app/
 
 ---
 
-## 🗂️ 프로젝트 구조2
+🗂️ 프로젝트 구조2
 
 ```plaintext
 aws-glue-monitoring-app/
