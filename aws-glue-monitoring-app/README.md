@@ -30,7 +30,7 @@ aws-glue-monitoring-app/
 ```
 ---
 
-## 실행 방법
+## 🚀 실행 방법
 
 1. 로컬에서 실행
 ```
@@ -43,7 +43,7 @@ docker build -t aws-glue-monitoring-app .
 docker run -p 8501:8501 aws-glue-monitoring-app
 ```
 
-## 사용 방법
+## 📌 사용 방법
 
 1. Config 파일 설정
 
