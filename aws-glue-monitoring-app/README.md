@@ -13,13 +13,6 @@ AWS Glue 워크플로우 실행 이력을 시각적으로 모니터링할 수 �
 - 📁 **로컬 JSON 샘플 데이터 테스트 가능**
 
 ---
-## 🗂️ 예시 화면
-
-<img width="1100" alt="截屏2025-06-26 下午10 01 50" src="https://github.com/user-attachments/assets/cfa0026b-1297-4a88-850a-2bd440a82850" />
-<img width="1100" alt="截屏2025-06-26 下午10 01 01" src="https://github.com/user-attachments/assets/db225fe5-245f-40bc-9c05-90038a9461fe" />
-
----
-
 ## 🗂️ 프로젝트 구조
 
 ```plaintext
