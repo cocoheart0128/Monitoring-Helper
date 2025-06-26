@@ -19,7 +19,7 @@ aws-glue-monitoring-app/
 ├── deploy.yml                   # GitHub Actions 배포 설정
 ├── start.sh                     # 로컬 실행 스크립트
 └── README.md                    # 문서 파일 (현재 파일)
-```plaintext
+```
 ---
 
 🗂️ 프로젝트 구조2
