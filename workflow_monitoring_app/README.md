@@ -21,11 +21,9 @@ aws-glue-monitoring-app/
 └── README.md                    # 사용 설명서
 
 
-⚙️ 설정
+## ⚙️ 설정
+```bash
 🔧 configs/workflow_config.json
-json
-복사
-편집
 {
   "acc_id": "YOUR_AWS_ACCESS_KEY_ID",
   "acc_key": "YOUR_AWS_SECRET_ACCESS_KEY",
@@ -37,12 +35,9 @@ workflow_names: 모니터링할 Glue Workflow 이름 리스트
 
 ✅ 운영 환경에서는 이 파일 대신 .env 또는 AWS Secrets Manager 사용을 권장합니다.
 
-🧪 configs/workflow_sample.json
+## 🧪 configs/workflow_sample.json
 샘플 데이터 기반으로 UI를 테스트할 수 있습니다 (AWS 미연결 환경에서 사용 가능).
-
-json
-복사
-편집
+```bash
 {
   "workflow_sample": [
     {
@@ -82,39 +77,26 @@ json
     }
   ]
 }
-🧪 로컬 실행 방법
+## 🧪 로컬 실행 방법
+```bash
 1. 패키지 설치
-bash
-복사
-편집
 pip install -r requirements.txt
 2. 실행 스크립트로 실행
-bash
-복사
-편집
 ./start.sh
 ✅ start.sh
-bash
-복사
-편집
+
 #!/bin/bash
 echo "🚀 Running Glue Monitor..."
 streamlit run app/app.py
 🐳 Docker로 실행하기
 이미지 빌드
-bash
-복사
-편집
+
 docker build -t glue-monitor .
 컨테이너 실행
-bash
-복사
-편집
+
 docker run -p 8501:8501 glue-monitor
 🐳 Dockerfile
-dockerfile
-복사
-편집
+
 FROM python:3.10-slim
 
 WORKDIR /app
@@ -129,9 +111,7 @@ EXPOSE 8501
 CMD ["streamlit", "run", "app/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
 🚀 배포 자동화 (GitHub Actions)
 deploy.yml 예시
-yaml
-복사
-편집
+
 name: Deploy to Server
 
 on:
