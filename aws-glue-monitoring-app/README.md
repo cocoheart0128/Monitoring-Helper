@@ -73,14 +73,14 @@ docker run -p 8501:8501 aws-glue-monitoring-app
     - 📈 성공/전체 Job 비율로 워크플로우 성공률 시각화
 
 
-▶️ 예시
+## ▶️ 예시 화면
 
 
 <img width="1100" alt="截屏2025-06-26 下午10 01 50" src="https://github.com/user-attachments/assets/cfa0026b-1297-4a88-850a-2bd440a82850" />
 <img width="1100" alt="截屏2025-06-26 下午10 01 01" src="https://github.com/user-attachments/assets/db225fe5-245f-40bc-9c05-90038a9461fe" />
 
 
-⚠️ 주의사항
+## ⚠️ 주의사항
 
 workflow_config.json에 AWS 자격 증명을 직접 포함하지 말고,
 .env 또는 GitHub Secrets를 통한 보안 처리 권장
