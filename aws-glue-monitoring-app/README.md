@@ -96,9 +96,9 @@ docker run -p 8501:8501 aws-glue-monitoring-app
 
 ## ⚠️ 주의사항
 
-workflow_config.json에 AWS 자격 증명을 직접 포함하지 말고,
-.env 또는 GitHub Secrets를 통한 보안 처리 권장
+- workflow_config.json에 AWS 자격 증명을 직접 포함하지 말고,
+  .env 또는 GitHub Secrets를 통한 보안 처리 권장
 
-샘플 데이터를 사용하는 경우 실제 AWS 호출은 일어나지 않음
+- 샘플 데이터를 사용하는 경우 실제 AWS 호출은 일어나지 않음
 
-Production 배포 시 SSL 인증 적용, 사용자 인증 추가 고려 필요
+- Production 배포 시 SSL 인증 적용, 사용자 인증 추가 고려 필요
