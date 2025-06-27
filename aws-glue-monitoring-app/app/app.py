@@ -12,6 +12,7 @@ import os
 ###config format {"acc_id": "","acc_key": "","workflow_names": ["wf1","wf2"]}
 
 config_path = os.path.join(os.path.dirname(__file__), "workflow_config.json")
+print(config_path)
 with open(config_path, "r") as f:
     config = json.load(f)
 
@@ -28,8 +29,8 @@ with open(sample_path, "r") as f:
 def convert_jobruns_datetime(workflow_sample):
     for wf in workflow_sample:
         for run in wf.get('wf_runs', []):
-            run["StartedOn"] = datetime.strptime(run["StartedOn"], "%Y-%m-%d%H:%M:%S")
-            run["CompletedOn"] = datetime.strptime(run["CompletedOn"], "%Y-%m-%d%H:%M:%S")
+            run["StartedOn"] = datetime.strptime(run["StartedOn"], "%Y-%m-%d %H:%M:%S")
+            run["CompletedOn"] = datetime.strptime(run["CompletedOn"], "%Y-%m-%d %H:%M:%S")
             graph = run.get('Graph', {})
             nodes = graph.get('Nodes', [])
             for node in nodes:
