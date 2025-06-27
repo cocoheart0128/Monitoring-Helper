@@ -11,7 +11,7 @@ import os
 # acc_key = os.environ.get("AWS_SECRET_ACCESS_KEY")
 ###config format {"acc_id": "","acc_key": "","workflow_names": ["wf1","wf2"]}
 
-with open("./workflow_config.json", "r'") as f:
+with open("./workflow_config.json", "r") as f:
     config = json.load(f)
 
 acc_id = config.get("acc_id", "")
