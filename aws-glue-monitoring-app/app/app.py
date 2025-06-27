@@ -11,7 +11,8 @@ import os
 # acc_key = os.environ.get("AWS_SECRET_ACCESS_KEY")
 ###config format {"acc_id": "","acc_key": "","workflow_names": ["wf1","wf2"]}
 
-with open("app/workflow_config.json", "r") as f:
+config_path = os.path.join(os.path.dirname(__file__), "workflow_config.json")
+with open(config_path, "r") as f:
     config = json.load(f)
 
 acc_id = config.get("acc_id", "")
@@ -21,7 +22,8 @@ workflow_names = config.get("workflow_names", [])
 
 ###샘플 데이터 테스트용
 workflow_names=["workflow_alpha","workflow_belta"]
-with open("app/workflow_sample.json", "r") as f:
+sample_path = os.path.join(os.path.dirname(__file__), "workflow_sample.json")
+with open(sample_path, "r") as f:
     workflow_sample = json.load(f)['workflow_sample']
 def convert_jobruns_datetime(workflow_sample):
     for wf in workflow_sample:
