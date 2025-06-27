@@ -55,12 +55,6 @@ def convert_jobruns_datetime(workflow_sample):
     return workflow_sample
 workflow_sample = convert_jobruns_datetime(workflow_sample)
 
-# for workflow in workflow_sample:
-#     for run in workflow["wf_runs"]:
-#         run["StartedOn"] = datetime.strptime(run["StartedOn"], "%Y-%m-%d %H:%M:%S")
-#         run["CompletedOn"] = datetime.strptime(run["CompletedOn"], "%Y-%m-%d %H:%M:%S")
-
-
 
 STATUS_ICONS = {'Success': '✅','Failed': '❌','Running': '🔄','Pending': '⏳','SUCCEEDED': '✅','FAILED': '❌','SKIPPED': '⚪','RUNNING': '🔄','PENDING': '⏳'}
 STATUS_COLORS = {'Success': 'green','Failed': 'red','Running': 'orange','Pending': 'grey','SUCCEEDED': 'green','FAILED': 'red','SKIPPED': 'grey','RUNNING': 'orange',
