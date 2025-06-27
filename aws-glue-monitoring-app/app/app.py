@@ -29,8 +29,13 @@ with open(sample_path, "r") as f:
 def convert_jobruns_datetime(workflow_sample):
     for wf in workflow_sample:
         for run in wf.get('wf_runs', []):
-            run["StartedOn"] = datetime.strptime(run["StartedOn"], "%Y-%m-%d %H:%M:%S")
-            run["CompletedOn"] = datetime.strptime(run["CompletedOn"], "%Y-%m-%d %H:%M:%S")
+            try:
+                run["StartedOn"] = datetime.strptime(run["StartedOn"], "%Y-%m-%d %H:%M:%S")
+                run["CompletedOn"] = datetime.strptime(run["CompletedOn"], "%Y-%m-%d %H:%M:%S")
+            except Exception:
+                run["StartedOn"] = datetime.strptime(run["StartedOn"], "%Y-%m-%d%H:%M:%S")
+                run["CompletedOn"] = datetime.strptime(run["CompletedOn"], "%Y-%m-%d%H:%M:%S")
+                
             graph = run.get('Graph', {})
             nodes = graph.get('Nodes', [])
             for node in nodes:
