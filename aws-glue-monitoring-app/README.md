@@ -90,7 +90,6 @@ docker run -p 8501:8501 aws-glue-monitoring-app
 ## ▶️ 예시 화면
 
 ![load_page](https://github.com/user-attachments/assets/191c1f72-81d2-4a66-9ae3-8a8c832596e4)
-<img width="1100" alt="截屏2025-06-26 下午10 01 50" src="![load_page](https://github.com/user-attachments/assets/191c1f72-81d2-4a66-9ae3-8a8c832596e4)" />
 <img width="1100" alt="截屏2025-06-26 下午10 01 50" src="https://github.com/user-attachments/assets/cfa0026b-1297-4a88-850a-2bd440a82850" />
 <img width="1100" alt="截屏2025-06-26 下午10 01 01" src="https://github.com/user-attachments/assets/db225fe5-245f-40bc-9c05-90038a9461fe" />
 
