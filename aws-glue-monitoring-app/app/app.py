@@ -59,7 +59,7 @@ STATUS_COLORS = {'Success': 'green','Failed': 'red','Running': 'orange','Pending
                  'PENDING': 'grey'}
 
 # AWS Glue client
-glue = boto3.client("glue",aws_access_key_id = acc_id,aws_secret_access_key = acc_key,verify=False)
+# glue = boto3.client("glue",aws_access_key_id = acc_id,aws_secret_access_key = acc_key,verify=False)
 
 # 실행 결과 상세 파싱 함수
 def get_wf_runs_results(wf_run): 
