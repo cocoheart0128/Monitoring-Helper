@@ -3,7 +3,7 @@
 AWS Glue 워크플로우 실행 이력을 시각적으로 모니터링할 수 있는 Streamlit 기반 대시보드입니다.  
 실패 Job 확인, 실행 소요 시간 분석, 성공률 파악 등 운영 효율성을 높일 수 있습니다.
 
-- Streamlit Cloud : https://aws-glue-monitoring-app-7gptmhrxkarpevqjhsgtgw.streamlit.app/
+Streamlit Cloud : https://aws-glue-monitoring-app-7gptmhrxkarpevqjhsgtgw.streamlit.app/
 
 ---
 ## 🖥️ 주요 기능
