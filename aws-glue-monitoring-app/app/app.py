@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import boto3
+# import boto3
 import streamlit as st
 from datetime import datetime
 from collections import defaultdict
