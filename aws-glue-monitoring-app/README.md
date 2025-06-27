@@ -19,7 +19,6 @@ AWS Glue 워크플로우 실행 이력을 시각적으로 모니터링할 수 �
 aws-glue-monitoring-app/
 ├── app/
 │   └── app.py                   # Streamlit 대시보드 메인 파일
-├── configs/
 │   ├── workflow_config.json     # AWS 인증 정보 및 워크플로우 이름 설정
 │   └── workflow_sample.json     # 테스트용 샘플 데이터
 ├── requirements.txt             # Python 패키지 의존성 목록
