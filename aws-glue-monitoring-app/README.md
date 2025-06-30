@@ -1,14 +1,14 @@
 # 📊 AWS Glue Workflow Monitoring Dashboard
 
-AWS Glue 워크플로우 실행 이력을 시각적으로 모니터링할 수 있는 Streamlit 기반 대시보드입니다.  
-실패 Job 확인, 실행 소요 시간 분석, 성공률 파악 등 운영 효율성을 높일 수 있습니다.
+AWS Glue Workflow/Job/Crawler 실행 이력을 시각적으로 모니터링할 수 있는 Streamlit 기반 대시보드입니다.  
+실패 이력 확인, 실행 소요 시간 분석, 성공률 파악 등 운영 효율성을 높일 수 있습니다.
 
 Streamlit Cloud : https://aws-glue-monitoring-app-7gptmhrxkarpevqjhsgtgw.streamlit.app/
 
 ---
 ## 🖥️ 주요 기능
 
-- 🔎 **지정된 AWS Glue Workflow 실행 내역 조회**
+- 🔎 **지정된 AWS Glue Workflow/Job/Crawler 실행 내역 조회**
 - ✅ **Job 단위 상태/로그/시간 시각화**
 - 📊 **성공/실패 비율 표시**
 - 🔄 **실시간 조회** (실제 AWS 계정 연동 시 가능)
@@ -21,7 +21,7 @@ Streamlit Cloud : https://aws-glue-monitoring-app-7gptmhrxkarpevqjhsgtgw.streaml
 aws-glue-monitoring-app/
 ├── app/
 │   └── app.py                   # Streamlit 대시보드 메인 파일
-│   ├── workflow_config.json     # AWS 인증 정보 및 워크플로우 이름 설정
+│   ├── workflow_config.json     # AWS 인증 정보 및 Workflow/Job/Crawler 이름 설정
 │   └── workflow_sample.json     # 테스트용 샘플 데이터
 ├── requirements.txt             # Python 패키지 의존성 목록
 ├── Dockerfile                   # Docker 이미지 정의 파일
