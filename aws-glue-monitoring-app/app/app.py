@@ -209,7 +209,7 @@ if submitted:
         for job_name in job_names:
         # for i, workflow_name in enumerate(workflow_names, start=1):
             # renamed_wf_name = f"workflow{i}"
-            st.header(f"🗂️ Job Name: {job_name}")  # 섹션 제목
+            st.header(f"🧱 Job Name: {job_name}")  # 섹션 제목
             job_runs_res=[]
 
     with tab3:
