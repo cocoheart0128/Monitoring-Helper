@@ -116,7 +116,7 @@ def get_wf_runs_results(wf_run):
 
 
 st.set_page_config(layout="wide")
-st.title("AWS Workflow Monitoring Dashboard")
+st.title("AWS Glue Monitoring Dashboard")
 
 st.sidebar.title("⚙️ Workflow Settings")
 # 공지사항 박스
@@ -130,75 +130,91 @@ st.sidebar.info("""
 {
   "acc_id": "",
   "acc_key": "",
-  "workflow_names": ["wf1", "wf2"]
+  "workflow_names": ["wf1", "wf2"],
+  "job_names":["job1","job2"],
+  "crawler_names":["crawler1","crawler2"]
 }
 """)
 
 with st.sidebar.form("workflow_form"):
-    max_results = st.number_input("Max Workflow Runs to Fetch", min_value=1, max_value=10, value=1)
+    max_results = st.number_input("Max Runs to Fetch", min_value=1, max_value=10, value=1)
     #uploaded_file = st.file_uploader("워크플로우 관련 파일 업로드", type=['csv', 'json', 'xlsx'])
-    submitted = st.form_submit_button("🚀 Fetch Workflow Runs")
+    submitted = st.form_submit_button("🚀 Fetch Runs")
 
 st.markdown("---")
 
+tab1, tab2, tab3 = st.tabs(["Workflow Runs", "Job Runs", "Crawler Runs"])
+
 if submitted:
-    for workflow_name in workflow_names:
-    # for i, workflow_name in enumerate(workflow_names, start=1):
-        # renamed_wf_name = f"workflow{i}"
-        st.header(f"🗂️ Workflow Name: {workflow_name}")  # 섹션 제목
+    with tab1:
+        for workflow_name in workflow_names:
+        # for i, workflow_name in enumerate(workflow_names, start=1):
+            # renamed_wf_name = f"workflow{i}"
+            st.header(f"🗂️ Workflow Name: {workflow_name}")  # 섹션 제목
 
-        workflow_runs = []
-        # wf_runs = glue.get_workflow_runs(Name=workflow_name, IncludeGraph=True, MaxResults=max_results)['Runs']
-        wf_runs = next((wf for wf in workflow_sample if wf["wf_name"] == workflow_name),None)['wf_runs'][0:max_results]
-        
-        for wf_run in wf_runs:
-            result = get_wf_runs_results(wf_run)
+            workflow_runs = []
+            # wf_runs = glue.get_workflow_runs(Name=workflow_name, IncludeGraph=True, MaxResults=max_results)['Runs']
+            wf_runs = next((wf for wf in workflow_sample if wf["wf_name"] == workflow_name),None)['wf_runs'][0:max_results]
+            
+            for wf_run in wf_runs:
+                result = get_wf_runs_results(wf_run)
 
-            # result['wf_name'] = renamed_wf_name
-            # for j, job in enumerate(result['jobs'], start=1):
-            #     job['job_name'] = f"{renamed_wf_name}_job{j}"
+                # result['wf_name'] = renamed_wf_name
+                # for j, job in enumerate(result['jobs'], start=1):
+                #     job['job_name'] = f"{renamed_wf_name}_job{j}"
 
-            workflow_runs.append(result)
-        
-        # 워크플로우 실행 목록을 순회하며 Expander 생성
-        for run in workflow_runs:
-            run_id = run['wf_name']
-            status_icon = STATUS_ICONS.get(run['status'], '❓')
-            status_color = STATUS_COLORS.get(run['status'], 'black')
-        
-            # 성공/전체 Job 수 계산
-            successful_jobs = sum(1 for job in run['jobs'] if job['job_state'] == 'SUCCEEDED')
-            total_jobs = len(run['jobs'])
-            success_ratio = f"{successful_jobs} / {total_jobs}"
+                workflow_runs.append(result)
+            
+            # 워크플로우 실행 목록을 순회하며 Expander 생성
+            for run in workflow_runs:
+                run_id = run['wf_name']
+                status_icon = STATUS_ICONS.get(run['status'], '❓')
+                status_color = STATUS_COLORS.get(run['status'], 'black')
+            
+                # 성공/전체 Job 수 계산
+                successful_jobs = sum(1 for job in run['jobs'] if job['job_state'] == 'SUCCEEDED')
+                total_jobs = len(run['jobs'])
+                success_ratio = f"{successful_jobs} / {total_jobs}"
 
 
-            # Expander 헤더 (워크플로우 요약 정보)
-            expander_title = (
-                f"{status_icon} run_date: {(run['s_time'])[0:10]}-------------------- Status:{run['status']}--------------------Success/Total: {success_ratio}"
-            )
+                # Expander 헤더 (워크플로우 요약 정보)
+                expander_title = (
+                    f"{status_icon} run_date: {(run['s_time'])[0:10]}-------------------- Status:{run['status']}--------------------Success/Total: {success_ratio}"
+                )
 
-            with st.expander(expander_title, expanded=False):
-                st.markdown(f"**Detail Job Execution Records for Workflow Name: `{run_id}`**")
-        
-                # Job 상세 정보를 담을 DataFrame 생성
-                job_data = []
-                for job in run['jobs']:
-                    job_status_icon = STATUS_ICONS.get(job['job_state'], '❓')
-                    job_status_color = STATUS_COLORS.get(job['job_state'], 'black')
-                    job_name_display = f"<span style='color:{job_status_color};'>↳ {job['job_name']}</span>"
-        
-                    job_data.append({
-                        'Run ID / Job': job_name_display,
-                        'Start Time': job.get('s_time', 'N/A'),
-                        'End Time': job.get('e_time', 'N/A'),
-                        'Duration': job.get('t_time', 'N/A'),
-                        'Status': f"<span style='color:{job_status_color};'>{job_status_icon}</span>",
-                    })
-                
-                df_jobs = pd.DataFrame(job_data)
-                
-                # HTML을 렌더링하기 위해 escape=False 사용
-                st.markdown(df_jobs.to_html(escape=False, index=False), unsafe_allow_html=True)
+                with st.expander(expander_title, expanded=False):
+                    st.markdown(f"**Detail Job Execution Records for Workflow Name: `{run_id}`**")
+            
+                    # Job 상세 정보를 담을 DataFrame 생성
+                    job_data = []
+                    for job in run['jobs']:
+                        job_status_icon = STATUS_ICONS.get(job['job_state'], '❓')
+                        job_status_color = STATUS_COLORS.get(job['job_state'], 'black')
+                        job_name_display = f"<span style='color:{job_status_color};'>↳ {job['job_name']}</span>"
+            
+                        job_data.append({
+                            'Run ID / Job': job_name_display,
+                            'Start Time': job.get('s_time', 'N/A'),
+                            'End Time': job.get('e_time', 'N/A'),
+                            'Duration': job.get('t_time', 'N/A'),
+                            'Status': f"<span style='color:{job_status_color};'>{job_status_icon}</span>",
+                        })
+                    
+                    df_jobs = pd.DataFrame(job_data)
+                    
+                    # HTML을 렌더링하기 위해 escape=False 사용
+                    st.markdown(df_jobs.to_html(escape=False, index=False), unsafe_allow_html=True)
+
+    with tab2:
+        for job_name in job_names:
+        # for i, workflow_name in enumerate(workflow_names, start=1):
+            # renamed_wf_name = f"workflow{i}"
+            st.header(f"🗂️ Job Name: {job_name}")  # 섹션 제목
+            job_runs_res=[]
+
+    with tab3:
+        for crawler_name in crawler_names:
+            st.header(f"🕷️ Crawler Name: {crawler_name}")
 
     st.markdown("---")
     st.info("Click on a workflow run to view its detailed job execution records.")
