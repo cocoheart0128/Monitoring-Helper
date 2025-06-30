@@ -19,10 +19,11 @@ with open(config_path, "r") as f:
 acc_id = config.get("acc_id", "")
 acc_key = config.get("acc_key", "")
 workflow_names = config.get("workflow_names", [])
-
+job_names=config.get("job_names", [])
+crawler_names=config.get("crawler_names", [])
 
 ###샘플 데이터 테스트용
-workflow_names=["workflow_alpha","workflow_belta"]
+# workflow_names=["workflow_alpha","workflow_belta"]
 sample_path = os.path.join(os.path.dirname(__file__), "workflow_sample.json")
 with open(sample_path, "r") as f:
     workflow_sample = json.load(f)['workflow_sample']

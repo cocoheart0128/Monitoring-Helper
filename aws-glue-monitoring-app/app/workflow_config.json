@@ -1,6 +1,7 @@
 {
     "acc_id":"",
     "acc_key":"",
-    "workflow_names":["wf1","wf2"]
-
+    "workflow_names":["workflow_alpha","workflow_belta"],
+    "job_names":["job1","job2"],
+    "crawler_names":["crawler1","crawler2"]
 }
