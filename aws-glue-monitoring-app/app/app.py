@@ -6,7 +6,7 @@ from datetime import datetime
 from collections import defaultdict
 import json
 import os
-from make_sample import make_job_sample
+from make_sample import make_job_sample,make_crawler_sample
 
 # acc_id = os.environ.get("AWS_ACCESS_KEY_ID")
 # acc_key = os.environ.get("AWS_SECRET_ACCESS_KEY")
