@@ -6,6 +6,7 @@ from datetime import datetime
 from collections import defaultdict
 import json
 import os
+from make_sample import make_job_sample
 
 # acc_id = os.environ.get("AWS_ACCESS_KEY_ID")
 # acc_key = os.environ.get("AWS_SECRET_ACCESS_KEY")
@@ -210,7 +211,35 @@ if submitted:
         # for i, workflow_name in enumerate(workflow_names, start=1):
             # renamed_wf_name = f"workflow{i}"
             st.header(f"🧱 Job Name: {job_name}")  # 섹션 제목
-            job_runs_res=[]
+            job_runs_res=make_job_sample()[job_name]
+            for job_run in job_runs_res:
+                job_run_id = job_run.get('Id', 'UNKNOWN')
+                job_name = job_run.get('JobName', 'UNKNOWN')
+                job_state = job_run.get('JobRunState', 'UNKNOWN')
+                start_time = job_run.get('StartedOn')
+                end_time = job_run.get('CompletedOn')
+                duration = str(end_time - start_time).split('.')[0] if end_time and start_time else 'UNKNOWN'
+            
+                status_icon = STATUS_ICONS.get(job_state, '❓')
+                status_color = STATUS_COLORS.get(job_state, 'black')
+            
+                run_date_str = start_time.strftime("%Y-%m-%d") if start_time else 'N/A'
+            
+                expander_title = f"{status_icon} [{job_name}] run_date: {run_date_str} — Status: {job_state}"
+            
+                with st.expander(expander_title, expanded=False):
+                    st.markdown(f"**Job Run ID:** `{job_run_id}`")
+                    st.markdown(f"- **Status:** `{job_state}`")
+                    st.markdown(f"- **Start Time:** `{start_time}`")
+                    st.markdown(f"- **End Time:** `{end_time}`")
+                    st.markdown(f"- **Duration:** `{duration}`")
+                    st.markdown(f"- **Execution Class:** `{job_run.get('ExecutionClass', 'N/A')}`")
+                    st.markdown(f"- **Max Capacity:** `{job_run.get('MaxCapacity', 'N/A')}`")
+                    st.markdown(f"- **Glue Version:** `{job_run.get('GlueVersion', 'N/A')}`")
+            
+                    if job_state == "FAILED":
+                        st.error(f"❌ Error Message:\n```\n{job_run.get('ErrorMessage', 'No details')}\n```")
+
 
     with tab3:
         for crawler_name in crawler_names:
