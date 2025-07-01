@@ -1,5 +1,3 @@
-지금 내가 aws glue 모니터링 하는 화면 개발하고 있는데
-
 import streamlit as st
 import pandas as pd
 import boto3
