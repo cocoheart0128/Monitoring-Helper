@@ -20,9 +20,10 @@ Streamlit Cloud : https://aws-glue-monitoring-app-7gptmhrxkarpevqjhsgtgw.streaml
 ```plaintext
 aws-glue-monitoring-app/
 ├── app/
-│   └── app.py                   # Streamlit 대시보드 메인 파일
+│   └── app.py                   # Streamlit 대시보드 메인 파일 (Only for Sample Data)
 │   ├── workflow_config.json     # AWS 인증 정보 및 Workflow/Job/Crawler 이름 설정
 │   └── workflow_sample.json     # 테스트용 샘플 데이터
+│   └── main.py                  # Streamlit 대시보드 메인 파일 (For AWS Access)
 ├── requirements.txt             # Python 패키지 의존성 목록
 ├── Dockerfile                   # Docker 이미지 정의 파일
 ├── deploy.yml                   # GitHub Actions 배포 설정
