@@ -212,6 +212,8 @@ if submitted:
             # renamed_wf_name = f"workflow{i}"
             st.header(f"🧱 Job Name: {job_name}")  # 섹션 제목
             job_runs_res=make_job_sample()[job_name]
+            # job_runs_res = glue.get_job_runs(JobName=job_name, MaxResults=max_results)["JobRuns"]
+
             for job_run in job_runs_res:
                 job_run_id = job_run.get('Id', 'UNKNOWN')
                 job_name = job_run.get('JobName', 'UNKNOWN')
