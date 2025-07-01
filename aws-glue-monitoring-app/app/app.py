@@ -246,6 +246,36 @@ if submitted:
     with tab3:
         for crawler_name in crawler_names:
             st.header(f"🕷️ Crawler Name: {crawler_name}")
+            # crawler_res = glue.get_crawler_metrics(CrawlerNameList=[crawler_name])
+            # crawler_info = glue.get_crawler(Name=crawler_name)["Crawler"]
+            crawler_res = make_crawler_sample()[crawler_name][0]
+            crawler_info = make_crawler_sample()[crawler_name][1]
+
+            metrics = crawler_res["CrawlerMetricsList"][0] if crawler_res["CrawlerMetricsList"] else {}
+            last_runtime = metrics.get("LastRuntimeSeconds", "N/A")
+            still_running = metrics.get("StillEstimating", False)
+            time_left = metrics.get("TimeLeftSeconds", "N/A")
+
+            last_crawl = crawler_info.get("LastCrawl", {})
+            crawl_status = last_crawl.get("Status", "UNKNOWN")
+            crawl_start = last_crawl.get("StartTime", "N/A")
+            crawl_end = last_crawl.get("EndTime", "N/A")
+            error_message = last_crawl.get("ErrorMessage", None)
+
+            status_icon = STATUS_ICONS.get(crawl_status.upper(), '❓')
+            status_color = STATUS_COLORS.get(crawl_status.upper(), 'black')
+
+            expander_title = f"{status_icon} Last Run: {str(crawl_start)[:19]} — Status: {crawl_status}"
+
+            with st.expander(expander_title, expanded=False):
+                st.markdown(f"- **Start Time:** `{crawl_start}`")
+                st.markdown(f"- **End Time:** `{crawl_end}`")
+                st.markdown(f"- **Status:** `{crawl_status}`")
+                st.markdown(f"- **Runtime (sec):** `{last_runtime}`")
+                if still_running:
+                    st.warning(f"⚠️ Crawler is currently estimating, time left: {time_left}s")
+                if error_message:
+                    st.error(f"❌ Error Message: {error_message}")
 
     st.markdown("---")
     st.info("Click on a workflow run to view its detailed job execution records.")
